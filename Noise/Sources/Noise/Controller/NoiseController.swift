@@ -112,7 +112,7 @@ open class NoiseController {
         guard controller == topViewController || controller == topViewControllerInNavigationController else { finishNotification(); return }
         topViewController = controller
         
-        var topOffset = topViewController?.topLayoutGuide.length ?? 0
+        var topOffset = topViewController?.view.safeAreaInsets.top ?? 0 
         if let viewController = topViewController?.navigationController, !viewController.isNavigationBarHidden {
             topOffset = 0
         }
@@ -149,7 +149,7 @@ open class NoiseController {
             y = viewController.navigationBar.frame.maxY
         }
         
-        UIView.animate(withDuration: NoiseController.NoiseDefaultAnimationTime, delay: 0, options: UIViewAnimationOptions(), animations: { [unowned self] in
+        UIView.animate(withDuration: NoiseController.NoiseDefaultAnimationTime, delay: 0, options: [], animations: { [unowned self] in
             var newFrame = self.view.frame
             newFrame.origin.y = presentation ? y : -newFrame.size.height
             self.view.frame = newFrame

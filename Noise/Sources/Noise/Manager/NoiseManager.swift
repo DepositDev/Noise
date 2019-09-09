@@ -9,7 +9,7 @@
 import Foundation
 
 open class NoiseManager {
-    open static let manager = NoiseManager()
+    public static let manager = NoiseManager()
     
     let operationQueue = OperationQueue.main
     

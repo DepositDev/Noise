@@ -20,7 +20,7 @@ public enum NoiseType: Int {
 @objc
 open class Noise: NSObject {
     
-    open static let DefaultNotificationDuration = 2.0
+    public static let DefaultNotificationDuration = 2.0
     
     @objc
     open class func showNotificationWith(message: String) {
@@ -128,47 +128,47 @@ open class Noise: NSObject {
 public extension UIViewController {
     
     @objc
-    public func showNoise(_ message: String) {
+    func showNoise(_ message: String) {
         Noise.generalShowWith(message: message, inViewController: self)
     }
     
     @objc
-    public func showNoise(title: String, message: String) {
+    func showNoise(title: String, message: String) {
         Noise.generalShowWith(message: message, title: title, inViewController: self)
     }
     
     @objc
-    public func showNoise(title: String?, message: String, icon: UIImage) {
+    func showNoise(title: String?, message: String, icon: UIImage) {
         Noise.generalShowWith(message: message, title: title, icon: icon, inViewController: self)
     }
     
     @objc
-    public func showNoise(title: String?, message: String, icon: UIImage?, type: NoiseType) {
+    func showNoise(title: String?, message: String, icon: UIImage?, type: NoiseType) {
         Noise.generalShowWith(message: message, title: title, icon: icon, inViewController: self, type: type)
     }
     
     @objc
-    public func showNoise(title: String?, message: String, icon: UIImage?, duration: Double, callBack: (() -> Bool)?) {
+    func showNoise(title: String?, message: String, icon: UIImage?, duration: Double, callBack: (() -> Bool)?) {
         Noise.generalShowWith(message: message, title: title, duration: duration, icon: icon, inViewController: self, action: callBack)
     }
     
     @objc
-    public func showNoise(title: String?, message: String, icon: UIImage?, duration: Double, type: NoiseType, callBack: (() -> Bool)?) {
+    func showNoise(title: String?, message: String, icon: UIImage?, duration: Double, type: NoiseType, callBack: (() -> Bool)?) {
         Noise.generalShowWith(message: message, title: title, duration: duration, icon: icon, inViewController: self, type: type, action: callBack)
     }
     
     @discardableResult
-    public func showNoise(title: String?, message: String, icon: UIImage?, duration: Double?, backgroundColor: UIColor?, callBack: (() -> Bool)?) -> NoiseController {
+    func showNoise(title: String?, message: String, icon: UIImage?, duration: Double?, backgroundColor: UIColor?, callBack: (() -> Bool)?) -> NoiseController {
         return Noise.generalShowWith(message: message, title: title, duration: duration, icon: icon, backgroundColor: backgroundColor, inViewController: self, action: callBack)
     }
     
     @discardableResult
-    public func showNoise(title: String?, message: String, icon: UIImage?, duration: Double?, blured: Bool, callBack: (() -> Bool)?) -> NoiseController {
+    func showNoise(title: String?, message: String, icon: UIImage?, duration: Double?, blured: Bool, callBack: (() -> Bool)?) -> NoiseController {
         return Noise.generalShowWith(message: message, title: title, duration: duration, icon: icon, blured: blured, inViewController: self, action: callBack)
     }
     
     @objc
-    public func showNoise(title: String?, message: String, icon: UIImage?, untilUserClose: Bool, callBack: (() -> Bool)?) {
+    func showNoise(title: String?, message: String, icon: UIImage?, untilUserClose: Bool, callBack: (() -> Bool)?) {
         if untilUserClose {
             Noise.generalShowWith(message: message, title: title, duration: nil, icon: icon, inViewController: self, action: callBack)
         } else {
